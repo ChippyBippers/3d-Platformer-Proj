@@ -74,6 +74,11 @@ public class CharacterControl : MonoBehaviour {
 
         Debug.DrawRay(Vector3.zero, transform.TransformDirection(mov)*10);
 
-        if (jump) myRB.velocity = new Vector3(myRB.velocity.x, jumpPow, myRB.velocity.z); 
+        if (jump && grounded) myRB.velocity = new Vector3(myRB.velocity.x, jumpPow, myRB.velocity.z); 
+    }
+
+    void applyAirMotion(Vector3 mov)
+    {
+        transform.Translate(mov);
     }
 }
